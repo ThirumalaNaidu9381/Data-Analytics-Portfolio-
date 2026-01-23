@@ -1,6 +1,6 @@
 📊 Data Analytics Portfolio — Netflix Case Study
-👤 About Me
 
+👤 About Me
 I am an aspiring Data Analyst focused on learning through real-world projects instead of only tutorials.
 This portfolio demonstrates hands-on skills in data cleaning, analysis, visualization, SQL, BI tools, and foundational machine learning using the Netflix dataset.
 
