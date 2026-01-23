@@ -71,7 +71,7 @@ Year with maximum releases
 
 Most common ratings
 
-🧠 Outcome: SQL proficiency for interview-style data analysis problems.
+🧠 Outcome: SQL proficiency for data analysis problems.
 
 🔹 Week 3 — Netflix Dashboard (Power BI)
 
@@ -108,6 +108,7 @@ Rating
 🔹 Week 5 — Machine Learning Project
 
 File: Week5_Netflix_ML.ipynb
+
 Project Title: Netflix Content Type Prediction
 
 Prepared dataset for ML
