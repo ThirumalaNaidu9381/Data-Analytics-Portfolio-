@@ -20,6 +20,7 @@ Google Colab
 Git & GitHub
 
 📌 Project Summaries
+
 🔹 Week 1 — Netflix Data Cleaning & EDA (Python)
 
 File: Week1_Netflix_EDA.ipynb
