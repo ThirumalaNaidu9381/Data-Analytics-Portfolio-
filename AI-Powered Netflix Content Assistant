@@ -1,0 +1,52 @@
+import pandas as pd
+df = pd.read_csv("/content/drive/MyDrive/netflix_titles.csv")
+
+movies = df[df["type"] == "Movie"][["title", "description"]].dropna().head(5)
+
+from google import genai
+client = genai.Client(api_key="Your_key")
+
+results = []
+
+for _, row in movies.iterrows():
+    
+    prompt = f"""
+You are a movie content analyst AI.
+
+TASKS:
+1. Write a 1-sentence summary.
+2. Choose ONE category from:
+Action, Comedy, Drama, Horror, Romance, Sci-Fi, Thriller, Documentary, Animation, Crime
+3. Generate 5 keywords.
+
+Movie Description:
+{row['description']}
+
+OUTPUT FORMAT:
+Summary: <text>
+Category: <genre>
+Keywords: <k1, k2, k3, k4, k5>
+"""
+
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
+
+        output = response.text
+
+        # ---- Post-processing ----
+        summary = output.split("Summary:")[1].split("Category:")[0].strip()
+        category = output.split("Category:")[1].split("Keywords:")[0].strip()
+        keywords = output.split("Keywords:")[1].strip()
+
+        results.append([row["title"], summary, category, keywords])
+
+        time.sleep(2)  # avoid rate limits
+
+    except Exception as e:
+        print("Error:", e)
+        continue
+ai_df = pd.DataFrame(results, columns=["title", "summary", "category", "keywords"])
+ai_df.head()
